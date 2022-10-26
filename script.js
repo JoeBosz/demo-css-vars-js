@@ -1,6 +1,10 @@
 const h1 = document.querySelector("h1");
 const h2 = document.querySelector(".art-title");
 
+// TODO; Select the only input on the page
+
+const input = document.querySelector("input");
+
 const buttons = document.querySelectorAll("button");
 
 function handleClick(event) {
@@ -12,12 +16,20 @@ function handleClick(event) {
   // If we clicked 'increase'...
   if (event.target.id === "increase") {
     h2.style.setProperty("--font-size", currentFontSize + 0.5 + "em");
+  } else {
+    // decrease
     h2.style.setProperty("--font-size", currentFontSize - 0.5 + "em");
   }
 }
 
-buttons.forEach(function (button) {
-  button.addEventListener("click", handleClick);
-});
+buttons.forEach(
+  // Call back function
+  function (button) {
+    button.addEventListener(
+      "click",
 
-h2.style.setProperty("color", "green");
+      // Reference the function we created above - use it for each button
+      handleClick
+    );
+  }
+);
