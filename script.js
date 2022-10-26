@@ -33,3 +33,7 @@ buttons.forEach(
     );
   }
 );
+
+document.querySelector("input").addEventListener("input", function (event) {
+  h1.style.setProperty("--color", event.target.value);
+});
